@@ -38,11 +38,22 @@
             "backgroundColor": "#000000"
           }
         }
-      ]
+      ],
+      "expo-font",
+      "expo-image",
+      "expo-status-bar",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "422d5929-e066-496d-b6ab-5d92f5b8d3d3"
+      }
+    },
+    "owner": "vikmel"
   }
 }
