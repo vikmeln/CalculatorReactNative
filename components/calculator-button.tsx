@@ -1,10 +1,10 @@
 import {
   Dimensions,
   Image,
-  View,
   Text,
   StyleSheet,
   ImageSourcePropType,
+  Pressable,
 } from "react-native";
 
 const screenWidth = Dimensions.get("window").width;
@@ -14,21 +14,36 @@ type Props = {
   label?: string;
   icon?: ImageSourcePropType;
   backgroundColor?: string;
+  onPress?: () => void;
 };
 
 export default function CalculatorButton({
   label,
   icon,
   backgroundColor,
+  onPress,
 }: Props) {
   return (
-    <View style={[styles.button, { backgroundColor: backgroundColor }]}>
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => [
+        styles.button,
+        {
+          backgroundColor: backgroundColor,
+          transform: [
+            {
+              scale: pressed ? 0.92 : 1,
+            },
+          ],
+        },
+      ]}
+    >
       {icon ? (
         <Image source={icon} style={styles.icon} />
       ) : (
         <Text style={styles.text}>{label}</Text>
       )}
-    </View>
+    </Pressable>
   );
 }
 

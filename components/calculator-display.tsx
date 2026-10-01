@@ -1,10 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
 
-export default function CalculatorDisplay() {
+type Props = {
+  expression: string;
+  result: string;
+};
+
+export default function CalculatorDisplay({ expression, result }: Props) {
   return (
     <View style={styles.display}>
-      <Text style={styles.expression}>38 670 ÷ 50 000</Text>
-      <Text style={styles.result}>0,7734</Text>
+      <Text style={styles.expression}>{expression}</Text>
+      <Text style={styles.result}>{result}</Text>
     </View>
   );
 }
